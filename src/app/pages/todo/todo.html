@@ -1,0 +1,10 @@
+<div>
+  <input #todoInput type="text" placeholder="New todo" (keyup.enter)="addTodo(todoInput)" />
+  <button (click)="addTodo(todoInput)" [disabled]="isLoading()">
+    {{ isLoading() ? 'Adding...' : 'Add' }}
+  </button>
+
+  @for (todo of todoList(); track todo.id) {
+    <p>{{ todo.todo | uppercase }}</p>
+  }
+</div>
